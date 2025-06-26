@@ -1,137 +1,397 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>SUBLUR 模糊字幕 - 革新性的语言学习工具 | 智能字幕助手</title>
-    <meta name="description" content="SUBLUR模糊字幕是一款创新的浏览器插件，通过智能模糊技术帮助用户在观看视频时自然提升听力理解能力。支持Chrome和Edge浏览器。">
-    <meta name="keywords" content="模糊字幕,语言学习,英语学习,听力训练,Chrome插件,Edge插件,字幕工具,视频学习,四级,六级,四六级,托福,雅思">
+    <title>三分熟字幕 - 沉浸式英语输入｜托福｜雅思｜四六级</title>
+    <meta name="description" content="在YouTube中提供被模糊的字幕，视频遮罩，能够使用ai对字幕中的单词进行语境翻译，基于可理解输入理论，为你提供三分熟的视频体验。">
+    <meta name="keywords" content="三分熟字幕, 模糊字幕, 语言学习, 英语学习, 听力训练, 托福, 雅思, 四六级, Chrome插件, Edge插件, 字幕工具, 沉浸式输入">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sublur.com/">
-    <meta property="og:title" content="SUBLUR 模糊字幕 - 突破语言学习瓶颈的智能工具">
-    <meta property="og:description" content="创新的模糊字幕技术，帮助您在观看视频时真正提升听力理解能力，而不是简单的字幕阅读。">
-    <meta property="og:image" content="https://sublur.com/images/og-image.jpg">
+    <meta property="og:url" content="https://sublur.top/">
+    <meta property="og:title" content="三分熟字幕 - 真正的沉浸，是听懂，而非看懂">
+    <meta property="og:description" content="告别阅读式看视频。三分熟字幕通过智能模糊技术，让你专注听力，高效提升语言能力。">
+    <meta property="og:image" content="https://sublur.top/icons/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sublur.com/">
-    <meta property="twitter:title" content="SUBLUR 模糊字幕 - 突破语言学习瓶颈的智能工具">
-    <meta property="twitter:description" content="创新的模糊字幕技术，帮助您在观看视频时真正提升听力理解能力，而不是简单的字幕阅读。">
-    <meta property="twitter:image" content="https://sublur.com/images/twitter-image.jpg">
+    <meta property="twitter:url" content="https://sublur.top/">
+    <meta property="twitter:title" content="三分熟字幕 - 真正的沉浸，是听懂，而非看懂">
+    <meta property="twitter:description" content="告别阅读式看视频。三分熟字幕通过智能模糊技术，让你专注听力，高效提升语言能力。">
+    <meta property="twitter:image" content="https://sublur.top/icons/twitter-image.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "SUBLUR 模糊字幕",
+        "name": "三分熟字幕",
         "applicationCategory": "BrowserExtension",
         "operatingSystem": "Chrome, Edge",
-        "description": "一款创新的浏览器插件，通过智能模糊技术帮助用户在观看视频时自然提升听力理解能力。",
+        "description": "在YouTube中提供被模糊的字幕和AI语境翻译，基于可理解输入理论，为你提供三分熟的视频体验。",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "150"
         }
     }
     </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=实际的跟踪ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '实际的跟踪ID');
-    </script>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            background-color: #fdfbe7;
+            color: #333333;
+        }
+        .theme-color {
+            color: #b0302f;
+        }
+        .theme-bg {
+            background-color: #b0302f;
+        }
+        .theme-border {
+            border-color: #b0302f;
+        }
+        .glass-effect {
+            background: rgba(253, 251, 231, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(235, 222, 193, 0.3);
+        }
+        .hero-bg {
+            background-image: radial-gradient(circle at top right, rgba(176, 48, 47, 0.1), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(176, 48, 47, 0.1), transparent 50%);
+            background-color: #fdfbe7;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .feature-card, .update-card, .scenario-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ebdec1;
+        }
+        .feature-card:hover, .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(176, 48, 47, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(176, 48, 47, 0.6);
+        }
+        .btn-icon {
+            width: 28px;
+            height: 28px;
+        }
+        
+        /* 引入自定义艺术字体 */
+        @font-face {
+            font-family: 'LiYeTi';
+            src: url('./fonts/狸叶字体 Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    <!-- 样式表 -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- 添加 favicon -->
-    <link rel="icon" href="icons/icon48.png" type="image/png">
+        /* 应用艺术字体的工具类 */
+        .font-liye {
+            font-family: 'LiYeTi', sans-serif;
+            font-weight: normal; /* 确保艺术字体不被错误加粗 */
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <div class="nav-container">
-            <img src="icons/Component 1 from Figma.png" alt="SUBLUR - 模糊字幕" class="nav-logo">
-            <nav class="nav-links">
-                <a href="#" class="cta-button" onclick="redirectToStore(event)">获取插件</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="hero">
-            <h1>真正的沉浸式语言学习体验</h1>
-            <p>基于二语习得理论，让您在观看视频时自然习得语言，告别机械记忆，开启高效学习模式</p>
-        </div>
-
-        <div class="content-wrapper">
-            <!-- 左侧内容 -->
-            <div class="content-left">
-                <div class="features">
-                    <div class="feature-card">
-                        <h3>智能模糊</h3>
-                        <p>自动识别并模糊显示您已掌握的单词,让学习更有针对性</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>沉浸式体验</h3>
-                        <p>告别频繁暂停回看,保持视频观看的连贯性</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>高效学习</h3>
-                        <p>在观看喜欢的视频时自然习得语言,事半功倍</p>
+<body class="antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="icons/未命名作品 12.png" alt="三分熟字幕 Logo" class="h-12">
+                <div class="h-12 flex items-center justify-center overflow-hidden">
+                    <img src="icons/未命名作品 13.png" alt="三分熟字幕" class="h-36">
+                </div>
+            </a>
+            <div class="relative group hidden md:inline-block pb-2 -mb-2">
+                <a href="#install" class="theme-bg text-white font-semibold py-2 px-5 rounded-lg cta-button flex items-center">
+                    <span>立即安装</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                </a>
+                <div class="absolute right-0 mt-2 w-48 origin-top-right rounded-md shadow-lg hidden group-hover:block glass-effect" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="py-1" role="none">
+                        <a href="https://chromewebstore.google.com/detail/%E4%B8%89%E5%88%86%E7%86%9F%E5%AD%97%E5%B9%95-%E6%B2%89%E6%B5%B8%E5%BC%8F%E8%8B%B1%E8%AF%AD%E8%BE%93%E5%85%A5%EF%BD%9C%E6%89%98%E7%A6%8F%EF%BD%9C%E9%9B%85%E6%80%9D%EF%BD%9C%E5%9B%9B%E5%85%AD%E7%BA%A7/ialajinbcabkjompgcbedlbbaknbfjki?authuser=0&hl=zh-CN" target="_blank" rel="noopener noreferrer" class="text-gray-700 font-medium hover:bg-gray-200 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
+                            <div class="flex items-center">
+                                <img src="icons/Chrome Icon Iconfinder.png" alt="Chrome" class="w-5 h-5 mr-3">
+                                <span>Chrome</span>
+                            </div>
+                        </a>
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/moflmmdclnleknmoalejnfpdiicoefjl" target="_blank" rel="noopener noreferrer" class="text-gray-700 font-medium hover:bg-gray-200 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
+                            <div class="flex items-center">
+                                <img src="icons/Microsoft Edge Icon.png" alt="Edge" class="w-5 h-5 mr-3">
+                                <span>Edge</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <!-- 右侧视频 -->
-            <div class="content-right">
-                <div class="demo-video">
-                    <video 
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        width="100%"
-                    >
+    <main>
+        <section class="min-h-screen flex items-center justify-center text-center pt-24 pb-12 hero-bg">
+            <div class="container mx-auto px-6">
+                <p class="theme-color font-semibold mb-4 text-lg md:text-xl font-liye">真正的沉浸，是听懂，而非看懂</p>
+                <h2 class="text-4xl md:text-6xl text-gray-800 mb-6 leading-tight font-liye">
+                    还在纠结要不要关掉字幕？<br class="hidden md:block">现在有更好的选择！
+                </h2>
+                <p class="max-w-3xl mx-auto text-gray-700 text-lg md:text-xl mb-10">
+                    如果说中文配音是"熟肉"，双语是"七分熟"，单语是"五分熟"，<br>那么「三分熟字幕」为您提供了一种"三分熟"的全新体验——保留足够的挑战让听力持续提升，又在关键时刻给予恰到好处的支持。
+                </p>
+                <div id="install" class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="https://chromewebstore.google.com/detail/%E4%B8%89%E5%88%86%E7%86%9F%E5%AD%97%E5%B9%95-%E6%B2%89%E6%B5%B8%E5%BC%8F%E8%8B%B1%E8%AF%AD%E8%BE%93%E5%85%A5%EF%BD%9C%E6%89%98%E7%A6%8F%EF%BD%9C%E9%9B%85%E6%80%9D%EF%BD%9C%E5%9B%9B%E5%85%AD%E7%BA%A7/ialajinbcabkjompgcbedlbbaknbfjki?authuser=0&hl=zh-CN" target="_blank" rel="noopener noreferrer" class="theme-bg text-white font-bold py-3 px-6 rounded-lg text-lg cta-button flex items-center space-x-3">
+                        <img src="icons/Chrome Icon Iconfinder.png" alt="Chrome" class="btn-icon">
+                        <span>在 Chrome 中安装</span>
+                    </a>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/moflmmdclnleknmoalejnfpdiicoefjl" target="_blank" rel="noopener noreferrer" class="border-2 theme-border text-gray-800 font-bold py-3 px-6 rounded-lg text-lg cta-button flex items-center space-x-3">
+                        <img src="icons/Microsoft Edge Icon.png" alt="Edge" class="btn-icon">
+                        <span>在 Edge 中安装</span>
+                    </a>
+                </div>
+                <p class="mt-4 text-gray-600 text-sm">目前支持 YouTube (Chrome/Edge)</p>
+            </div>
+        </section>
+
+        <section id="demo" class="py-20 bg-[#ebdec1] bg-opacity-30">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-gray-800 font-liye">
+                    <span class="theme-color">🎬</span> 产品演示
+                </h2>
+                <div class="max-w-5xl mx-auto rounded-2xl overflow-hidden glass-effect shadow-lg border border-[#ebdec1]">
+                    <video autoplay muted loop playsinline class="w-full">
                         <source src="videos/录屏2025-01-08 17.14.09.mov" type="video/mp4">
                         您的浏览器不支持 HTML5 视频播放。
                     </video>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="download-buttons">
-            <a href="#" class="cta-button" onclick="redirectToStore(event, 'chrome')">
-                <img src="icons/Chrome Icon.png" alt="Chrome">
-                获取Chrome插件
-            </a>
-            <a href="#" class="cta-button" onclick="redirectToStore(event, 'edge')">
-                <img src="icons/Microsoft Edge Icon.png" alt="Edge">
-                获取Edge插件
-            </a>
-        </div>
-    </div>
+        <section id="features" class="py-20 bg-[#ebdec1] bg-opacity-50">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-gray-800 font-liye">
+                    <span class="theme-color">🎯</span> 独特优势
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                        <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="sparkles" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">智能模糊</h3>
+                        <p class="text-gray-700">通过模糊处理让你在需要时才能看清，把注意力还给听力。</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                         <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="brain-circuit" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">AI语境翻译</h3>
+                        <p class="text-gray-700">点击单词精准翻译，轻松解析俚语、专业术语等特殊用法。</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                         <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="target" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">个性化学习</h3>
+                        <p class="text-gray-700">自动高亮你标记的生词，打造专属于你的学习曲线。</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                        <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="zap-off" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">保持沉浸</h3>
+                        <p class="text-gray-700">不再频繁暂停查词，让你从始至终专注于视频内容。</p>
+                    </div>
+                     <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                        <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="mouse-pointer-click" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">自主掌控</h3>
+                        <p class="text-gray-700">手动标记或取消标记单词，完全由你决定何时需要提示。</p>
+                    </div>
+                     <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                        <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="message-square-plus" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">双字幕模式</h3>
+                        <p class="text-gray-700">显示上一条字幕，即使错过也无需回首寻找那个单词。</p>
+                    </div>
+                     <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                        <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="rectangle-horizontal" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">字幕遮罩</h3>
+                        <p class="text-gray-700">视频内嵌了字幕不想看？用毛玻璃效果优雅地遮住它。</p>
+                    </div>
+                     <div class="feature-card p-6 rounded-2xl glass-effect text-center">
+                         <div class="theme-bg inline-block p-3 rounded-xl mb-4">
+                           <i data-lucide="languages" class="text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">双语字幕</h3>
+                        <p class="text-gray-700">可选择仅模糊译文，在你需要时才看得清，鱼和熊掌兼得。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="why" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-gray-800 font-liye">
+                     <span class="theme-color">💡</span> 为什么选择三分熟字幕？
+                </h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-lg">
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-red-400">传统方式的困境</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i data-lucide="x-circle" class="w-6 h-6 mr-3 mt-1 text-red-400"></i>
+                                <span><strong class="text-gray-800">开字幕</strong><br>不知不觉变成了阅读练习，忽略了听力本身。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="x-circle" class="w-6 h-6 mr-3 mt-1 text-red-400"></i>
+                                <span><strong class="text-gray-800">关字幕</strong><br>遇到生词反复暂停查阅，严重打断观看体验。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#b0302f] to-[#80201f] rounded-2xl p-8 text-white shadow-lg shadow-[#b0302f]/20">
+                        <h3 class="text-2xl font-bold mb-4">模糊字幕的突破</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 mr-3 mt-1"></i>
+                                <span><strong class="text-white">专注听力</strong><br>模糊显示避免依赖阅读，强制用耳朵捕捉信息。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 mr-3 mt-1"></i>
+                                <span><strong class="text-white">主动学习</strong><br>灵活标记难词，掌握后取消，逐步摆脱字幕依赖。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="scenarios" class="py-20 bg-[#ebdec1] bg-opacity-30">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-gray-800 font-liye">
+                    <span class="theme-color">✨</span> 使用场景
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="scenario-card glass-effect rounded-2xl p-8">
+                        <i data-lucide="tv-2" class="w-12 h-12 mb-4 theme-color"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">追最新剧集</h3>
+                        <p class="text-gray-700">自然地理解对白，只在不熟悉的俚语或关键词处获得即时提示，学习娱乐两不误。</p>
+                    </div>
+                    <div class="scenario-card glass-effect rounded-2xl p-8">
+                        <i data-lucide="youtube" class="w-12 h-12 mb-4 theme-color"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">看油管视频</h3>
+                        <p class="text-gray-700">无论是知识科普还是生活Vlog，难词自动显现，其他内容放心交给你的耳朵来理解。</p>
+                    </div>
+                    <div class="scenario-card glass-effect rounded-2xl p-8">
+                        <i data-lucide="film" class="w-12 h-12 mb-4 theme-color"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">重温经典影片</h3>
+                        <p class="text-gray-700">曾经标记的单词清晰可见，其他已掌握的内容则重点锻炼听力，检验学习成果。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- 简化的footer -->
-    <footer class="footer">
-        <div class="copyright">
-            © 2024 SUBLUR 模糊字幕. All rights reserved.
+        <section id="updates" class="py-20">
+            <div class="container mx-auto px-6">
+                 <h2 class="section-title text-gray-800 font-liye">
+                    <span class="theme-color">｜</span> 更新日志 <span class="theme-color">｜</span>
+                </h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-6">
+                        <div class="update-card relative pl-10 glass-effect p-5 rounded-xl">
+                            <div class="absolute top-5 left-0 h-full flex items-center">
+                                <div class="w-4 h-4 rounded-full theme-bg -ml-2 border-4 border-[#fdfbe7]"></div>
+                            </div>
+                            <p class="font-bold text-lg theme-color">1.6.1 <span class="text-gray-500 text-sm ml-2">最新</span></p>
+                            <p class="text-gray-700 mt-1">新增新用户指引</p>
+                        </div>
+                        <div class="update-card relative pl-10 glass-effect p-5 rounded-xl">
+                            <div class="absolute top-5 left-0 h-full flex items-center">
+                               <div class="w-4 h-4 rounded-full theme-bg -ml-2 border-4 border-[#fdfbe7]"></div>
+                            </div>
+                            <p class="font-bold text-lg theme-color">1.6.0</p>
+                            <ul class="list-disc list-inside text-gray-700 mt-1 space-y-1">
+                                <li>新增毛玻璃遮罩功能、双语字幕功能、多模式模糊状态、悬浮暂停模式</li>
+                                <li>优化翻译弹窗UI</li>
+                            </ul>
+                        </div>
+                        <details class="update-card relative pl-10 glass-effect p-5 rounded-xl cursor-pointer">
+                           <summary class="font-bold text-lg text-gray-500 hover:text-gray-800 transition">查看更早的更新...</summary>
+                           <div class="mt-4 space-y-4 text-gray-700">
+                               <p><strong class="theme-color">1.5.3.2:</strong> 修复时间轴错位问题。</p>
+                               <p><strong class="theme-color">1.5.3.1:</strong> 修复因YouTube更新导致的无法显示字幕的问题。</p>
+                               <p><strong class="theme-color">1.5.3:</strong> 优化单词表UI，增加单词删除功能。</p>
+                               <p><strong class="theme-color">1.5.2:</strong> 新增字幕列表双语模式，优化列表UI。</p>
+                               <p><strong class="theme-color">1.5.1:</strong> 新增黑夜模式，优化AI语境翻译功能。</p>
+                               <p><strong class="theme-color">1.5.0:</strong> 新增AI语境翻译模式，优化翻译弹窗UI。</p>
+                               <p><strong class="theme-color">1.4.7.1:</strong> 双字幕模式可关闭。</p>
+                               <p><strong class="theme-color">1.4.7:</strong> 新增显示上一条字幕的副字幕。</p>
+                               <p><strong class="theme-color">1.4.6:</strong> 新增字幕大小调节功能。</p>
+                           </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-started" class="py-20 text-center hero-bg">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 font-liye">
+                    <span class="theme-color">🚀</span> 立即开始
+                </h2>
+                <p class="max-w-2xl mx-auto text-gray-700 text-lg md:text-xl mb-10">
+                    立即安装「三分熟字幕」，让每一次观看视频都成为提升语言能力的绝佳机会！
+                </p>
+                <a href="#" class="theme-bg text-white font-bold py-4 px-10 rounded-lg text-lg cta-button inline-flex items-center space-x-2">
+                    <i data-lucide="sparkles"></i>
+                    <span>体验更智能高效的学习方式</span>
+                </a>
+                <p class="mt-6 text-gray-600">
+                    ｜目前支持YouTube，其他平台正在全力开发，敬请期待｜<br>
+                    <span class="text-amber-600">｜激活程序需在视频界面手动刷新一下页面｜</span>
+                </p>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-[#ebdec1] py-8 text-center">
+        <div class="container mx-auto px-6 text-gray-600">
+            <p>&copy; 2024 三分熟字幕. All Rights Reserved.</p>
+            <p class="text-sm mt-2">真正的沉浸，是听懂，而非看懂</p>
         </div>
     </footer>
 
-    <!-- 脚本 -->
-    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html> 
